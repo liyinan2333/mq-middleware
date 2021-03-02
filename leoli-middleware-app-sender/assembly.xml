@@ -1,0 +1,42 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>content</id>
+    <formats>
+        <format>dir</format>
+    </formats>
+    <baseDirectory>/</baseDirectory>
+    <!--    <includeBaseDirectory>false</includeBaseDirectory>-->
+    <dependencySets>
+        <!-- 项目的依赖包 -->
+        <dependencySet>
+            <!-- 当前项目构件是否包含在这个依赖集合里 -->
+            <useProjectArtifact>true</useProjectArtifact>
+            <!-- 依赖jar包放置目录-->
+            <outputDirectory>./lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+        <!-- 程序运行的启动脚本 -->
+        <fileSet>
+            <!-- 指定要包含的目录，必须是目录 -->
+            <directory>src/main/resources/bin</directory>
+            <!-- 打包的文件放在该目录下 -->
+            <outputDirectory>./bin</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <!--文件执行权限-->
+            <fileMode>0775</fileMode>
+        </fileSet>
+        <fileSet>
+            <!-- 配置文件 -->
+            <directory>src/main/resources/config</directory>
+            <outputDirectory>./config</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
+</assembly>
