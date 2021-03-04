@@ -22,13 +22,17 @@ public class TopicConfig {
     /**
      * 交换器
      */
-    private final static String EXCHANGE_SPRING = "leoli";
+    public final static String EXCHANGE_MIDDLEWARE_TOPIC = "leoli.middleware.topic";
     /**
      * topic
      */
-    private final static String TOPIC_SPRING_MESSAGE = "sender.001";
-    private final static String TOPIC_SPRING_MESSAGES = "sender.002";
-    private final static String TOPIC_SPRING_ALL = "sender.#";
+    public final static String QUEUE_SENDER_0001 = "SENDER-0001";
+    public final static String QUEUE_SENDER_0002 = "SENDER-0002";
+    public final static String QUEUE_SENDER_ALL = "SENDER-ALL";
+
+    public final static String TOPIC_SENDER_0001 = "sender.0001";
+    public final static String TOPIC_SENDER_0002 = "sender.0002";
+    public final static String TOPIC_SENDER_ALL = "sender.#";
 
     /**
      * 创建队列
@@ -36,13 +40,18 @@ public class TopicConfig {
      * @return 方法同名队列Bean
      */
     @Bean
-    public Queue queueMessage() {
-        return new Queue(TOPIC_SPRING_MESSAGE);
+    public Queue queueSender0001() {
+        return new Queue(QUEUE_SENDER_0001);
     }
 
     @Bean
-    public Queue queueMessages() {
-        return new Queue(TOPIC_SPRING_MESSAGES);
+    public Queue queueSender0002() {
+        return new Queue(QUEUE_SENDER_0002);
+    }
+
+    @Bean
+    public Queue queueSenderAll() {
+        return new Queue(QUEUE_SENDER_ALL);
     }
 
     /**
@@ -52,34 +61,48 @@ public class TopicConfig {
      */
     @Bean
     public TopicExchange exchange() {
-        return new TopicExchange(EXCHANGE_SPRING);
+        return new TopicExchange(EXCHANGE_MIDDLEWARE_TOPIC);
     }
 
     /**
      * 将队列绑定到Topic交换器，匹配单个topic
+     * queueSender0001这个队列，通过sender.0001这个topic，绑定到leoli这个交换机
      *
-     * @param queueMessage 同名队列{@link Bean}
-     * @param exchange     交换器
+     * @param queueSender0001 同名队列{@link Bean}
+     * @param exchange        交换器
      * @return
      */
     @Bean
-    public Binding bindingExchangeMessage(Queue queueMessage, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessage).to(exchange).with(TOPIC_SPRING_MESSAGE);
+    public Binding bindingSender0001(Queue queueSender0001, TopicExchange exchange) {
+        return BindingBuilder.bind(queueSender0001).to(exchange).with(TOPIC_SENDER_0001);
+    }
+
+    /**
+     * 将队列绑定到Topic交换器，匹配单个topic
+     * queueSender0002这个队列，通过sender.0002这个topic，绑定到leoli这个交换机
+     *
+     * @param queueSender0002 同名队列{@link Bean}
+     * @param exchange        交换器
+     * @return
+     */
+    @Bean
+    public Binding bindingSender0002(Queue queueSender0002, TopicExchange exchange) {
+        return BindingBuilder.bind(queueSender0002).to(exchange).with(TOPIC_SENDER_0002);
     }
 
     /**
      * 将队列绑定到Topic交换器，采用#的方式
      * (#匹配0个或多个单词，*匹配一个单词)
      * 注意：
-     * 这里将queueMessages这个队列绑定到了 spring.#这个topic和 springExchange这个交换器,
-     * 订阅时指定订阅queueMessages这个队列即可。
+     * 这里将QUEUE_SENDER_ALL这个队列绑定到了 spring.#这个topic和 springExchange这个交换器,
+     * 订阅时指定订阅QUEUE_SENDER_ALL这个队列即可。
      *
-     * @param queueMessages 同名队列{@link Bean}
-     * @param exchange      交换器
+     * @param queueSenderAll 同名队列{@link Bean}
+     * @param exchange       交换器
      * @return 绑定关系
      */
     @Bean
-    public Binding bindingExchangeMessages(Queue queueMessages, TopicExchange exchange) {
-        return BindingBuilder.bind(queueMessages).to(exchange).with(TOPIC_SPRING_ALL);
+    public Binding bindingSenderAll(Queue queueSenderAll, TopicExchange exchange) {
+        return BindingBuilder.bind(queueSenderAll).to(exchange).with(TOPIC_SENDER_ALL);
     }
 }
