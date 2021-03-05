@@ -1,4 +1,4 @@
-package leoli.middleware.app.sender.config;
+package leoli.middleware.app.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

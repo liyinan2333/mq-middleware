@@ -37,4 +37,4 @@ logging:
             sql:
               BasicBinder: trace
   file:
-    name: ../logs/middleware-sender-debug.log
+    name: ../logs/middleware-debug.log

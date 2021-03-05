@@ -9,17 +9,17 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>leoli</groupId>
-    <artifactId>leoli-middleware-app-sender</artifactId>
+    <artifactId>leoli-middleware-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>leoli-middleware-app-sender</name>
-    <description>模拟MQ上有进程，随机发消息</description>
+    <name>leoli-middleware-app</name>
+    <description>MQ服务节点，收发消息、处理消息</description>
 
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <assembly.path>assembly.xml</assembly.path>
-        <main.class>Application</main.class>
+        <main.class>leoli.middleware.app.Application</main.class>
     </properties>
 
     <dependencies>
@@ -35,11 +35,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -57,7 +52,7 @@
                 </excludes>
             </resource>
             <resource>
-                <directory>src/main/resources/config</directory>
+                <directory>src/main/resources/conf</directory>
                 <includes>
                     <include>*</include>
                 </includes>

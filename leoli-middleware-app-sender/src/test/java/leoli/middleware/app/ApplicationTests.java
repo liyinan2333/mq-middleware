@@ -1,4 +1,4 @@
-package leoli.middleware.app.sender;
+package leoli.middleware.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

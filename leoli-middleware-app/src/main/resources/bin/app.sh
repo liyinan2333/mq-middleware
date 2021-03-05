@@ -1,7 +1,7 @@
 #!/bin/bash
 
-appName="leoli-middleware-app-sender"
-mainCls="leoli-middleware-app-sender-0.0.1-SNAPSHOT.jar"
+appName="leoli-middleware-app"
+mainCls="leoli-middleware-app-0.0.1-SNAPSHOT.jar"
 if [ -z $appName ]
 then
     echo "Please check that this script and your jar-package is in the same directory!"
