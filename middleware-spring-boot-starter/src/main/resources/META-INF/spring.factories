@@ -1,0 +1,3 @@
+# Autoconfiguration自动装配
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+leoli.middleware.service.config.MiddlewareAutoConfiguration

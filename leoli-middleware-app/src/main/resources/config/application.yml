@@ -4,12 +4,15 @@ server:
 spring:
   application:
     name: middleware-app-sender
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: admin
-    password: 123456
-    virtual-host: vhost
+leoli:
+  middleware:
+    enable: true
+  #  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: admin
+#    password: 123456
+#    virtual-host: vhost
 #  jpa:
 #    properties:
 #      hibernate:
