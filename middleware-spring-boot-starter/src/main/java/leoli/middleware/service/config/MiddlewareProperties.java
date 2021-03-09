@@ -15,17 +15,17 @@ public class MiddlewareProperties {
 
     private boolean enable;
 
-    private List<String> produce;
+    private List<String> producer;
 
-    private List<String> consume;
+    private List<String> consumer;
 
 }
 
 //leoli:
 //        middleware:
-//            produce:
+//            producer:
 //            -- middleware.0001
-//            consume:
+//            consumer:
 //            -- sender.0001
 //            -- sender.0002
 //            -- sender.all

@@ -7,23 +7,29 @@ spring:
 leoli:
   middleware:
     enable: true
+    producer:
+      - middleware.0001
+    consumer:
+      - sender.0001
+      - sender.0002
+      - sender.all
   #  rabbitmq:
-#    host: 127.0.0.1
-#    port: 5672
-#    username: admin
-#    password: 123456
-#    virtual-host: vhost
-#  jpa:
-#    properties:
-#      hibernate:
-#        format_sql: true
-#        ddl-auto: update
-#    show-sql: true
-#  datasource:
-#    url: jdbc:mysql://db.leoli.wiki:3306/leoli-app-deploy?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
-#    username: leoli
-#    password:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    host: 127.0.0.1
+  #    port: 5672
+  #    username: admin
+  #    password: 123456
+  #    virtual-host: vhost
+  #  jpa:
+  #    properties:
+  #      hibernate:
+  #        format_sql: true
+  #        ddl-auto: update
+  #    show-sql: true
+  #  datasource:
+  #    url: jdbc:mysql://db.leoli.wiki:3306/leoli-app-deploy?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+  #    username: leoli
+  #    password:
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
   devtools:
     restart:
       enable: true #开启热部署
