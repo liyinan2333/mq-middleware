@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
@@ -25,6 +27,7 @@ public class SenderTest {
 
     @Test
     public void send() {
+
         // 直接向队列中塞消息
         template.convertAndSend(TopicConfig.QUEUE_SENDER_0001, "我是乘坐sender.0001过来的!");
         template.convertAndSend(TopicConfig.QUEUE_SENDER_0001, new BigDecimal(12345.67890));

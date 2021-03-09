@@ -19,7 +19,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <assembly.path>assembly.xml</assembly.path>
-        <main.class>Application</main.class>
+        <main.class>leoli.middleware.app.Application</main.class>
     </properties>
 
     <dependencies>
@@ -48,36 +48,6 @@
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <outputDirectory>target/classes</outputDirectory>
         <testOutputDirectory>target/test-classes</testOutputDirectory>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                    <!--                    <exclude>**/.svn/*</exclude>-->
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/config</directory>
-                <includes>
-                    <include>*</include>
-                </includes>
-                <filtering>false</filtering>
-                <targetPath>${project.build.directory}/${project.artifactId}-${project.version}/config</targetPath>
-            </resource>
-            <resource>
-                <directory>src/main/resources/bin</directory>
-                <filtering>true</filtering>
-                <targetPath>${project.build.directory}/${project.artifactId}-${project.version}/bin</targetPath>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/java</directory>
-            </testResource>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

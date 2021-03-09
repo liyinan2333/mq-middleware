@@ -7,9 +7,10 @@ spring:
   rabbitmq:
     host: 127.0.0.1
     port: 5672
-    username: guest
+    username: admin
     password: 123456
     virtual-host: vhost
+
 #  jpa:
 #    properties:
 #      hibernate:
